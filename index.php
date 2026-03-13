@@ -21,7 +21,7 @@
             </ul>
             <div class="perfil-usuario">
                 <img src="https://ui-avatars.com/api/?name=Rafael+Adriano&background=008080&color=fff" alt="Avatar">
-                <span>Rafael Adriano Oliveira da Silva</span>
+                <span>Rafael Adriano</span>
             </div>
         </nav>
 
@@ -30,7 +30,7 @@
                 <article>
                     <h2>Módulo de Usuário</h2>
                     <p>Gerencie os acessos e permissões do sistema nesta área.</p>
-                    <a href="./usuarios.php" class="btn">Acessar</a>
+                    <a href="#" class="btn">Acessar</a>
                 </article>
                 <article>
                     <h2>Relatórios de Vendas</h2>
