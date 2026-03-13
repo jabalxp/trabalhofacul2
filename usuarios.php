@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <div class="dashboard-container">
+    <?php include 'components/menu.php'; ?>
     <main>
         <div class="header-content">
             <h2>Gestão de Usuários</h2>
@@ -34,24 +36,55 @@
                         <td>rafael.adriano2801@gmail.com</td>
                         <td>Administrador</td>
                         <td><span class="badge ativo">Ativo</span></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-x"></i></button></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-list"></i></button></td>
+                        <td>
+                            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-x"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-list"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td>02</td>
                         <td>Ana Souza</td>
                         <td>ana.souza@email.com</td>
                         <td>Editor</td>
+                        <td><span class="badge inativo">Inativo</span></td>
+                        <td>
+                            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-x"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-list"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>Miguel Casteletti Rosa</td>
+                        <td>miguelcastelettirosa@gmail.com</td>
+                        <td>Editor</td>
+                        <td><span class="badge inativo">Inativo</span></td>
+                        <td>
+                            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-x"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-list"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>Rafael Casteletti Rosa</td>
+                        <td>rafaelcastelettirosa@gmail.com</td>
+                        <td>Editor</td>
                         <td><span class="badge ativo">Ativo</span></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-x"></i></button></td>
-                        <td><button class="btn-icon"><i class="fa-solid fa-list"></i></button></td>
+                        <td>
+                            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-x"></i></button>
+                            <button class="btn-icon"><i class="fa-solid fa-list"></i></button>
+                        </td>
                     </tr>
                 </tbody>
-        </div>
-        </table>
-    </main>
+            </table>
+            </div>
+        </main>
+    </div>
+
+    <?php include 'components/footer.php'; ?>
 </body>
 
 </html>
