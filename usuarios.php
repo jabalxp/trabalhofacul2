@@ -35,6 +35,8 @@
                         <td>Administrador</td>
                         <td><span class="badge ativo">Ativo</span></td>
                         <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button></td>
+                        <td><button class="btn-icon"><i class="fa-solid fa-x"></i></button></td>
+                        <td><button class="btn-icon"><i class="fa-solid fa-list"></i></button></td>
                     </tr>
                     <tr>
                         <td>02</td>
@@ -43,6 +45,8 @@
                         <td>Editor</td>
                         <td><span class="badge ativo">Ativo</span></td>
                         <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button></td>
+                        <td><button class="btn-icon"><i class="fa-solid fa-x"></i></button></td>
+                        <td><button class="btn-icon"><i class="fa-solid fa-list"></i></button></td>
                     </tr>
                 </tbody>
         </div>

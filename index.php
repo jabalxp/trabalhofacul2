@@ -9,28 +9,15 @@
 </head>
 
 <body>
-
-
     <div class="dashboard-container">
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Projetos</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <li><a href="#">Configurações</a></li>
-            </ul>
-            <div class="perfil-usuario">
-                <img src="https://ui-avatars.com/api/?name=Rafael+Adriano&background=008080&color=fff" alt="Avatar">
-                <span>Rafael Adriano</span>
-            </div>
-        </nav>
+    <?php include 'menu.php'; ?>
 
         <main>
             <section class="container-cards">
                 <article>
                     <h2>Módulo de Usuário</h2>
                     <p>Gerencie os acessos e permissões do sistema nesta área.</p>
-                    <a href="#" class="btn">Acessar</a>
+                    <a href="usuarios.php" class="btn">Acessar</a>
                 </article>
                 <article>
                     <h2>Relatórios de Vendas</h2>
@@ -46,11 +33,7 @@
         </main>
 
     </div>
-
-    <footer>
-        <p>&copy; <?php echo date('Y'); ?> - Desenvolvido na aula de Web I</p>
-    </footer>
-
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
