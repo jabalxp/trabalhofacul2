@@ -1,6 +1,6 @@
 <?php
-$largura = 10;
-$comprimento = 20;
+$largura = 15;
+$comprimento = 30;
 $area = $largura * $comprimento;
 
 
