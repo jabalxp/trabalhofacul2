@@ -14,8 +14,10 @@
         <?php include 'menu.php'; ?>
         <main>
             <div class="header-content">
-                <h2>Gestão de Usuários</h2>
-                <p>Visualize e gerencie as permissões dos usuários do sistema.</p>
+                <div class="header-title">
+                    <h2>Gestão de Usuários</h2>
+                    <p>Visualize e gerencie as permissões dos usuários do sistema.</p>
+                </div>
                 <a href="cad-usuarios.php" class="btn registro">Novo Usuário</a>
             </div>
             <div class="table-responsive">
@@ -73,11 +75,16 @@
                         <td><span class="badge ativo">Ativo</span></td>
                         <td>
                             <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
-                            <button class="btn-icon"><i class="fa-solid fa-x"></i></button>
-                            <button class="btn-icon"><i class="fa-solid fa-list"></i></button>
+                            <button class="btn-icon"><i class="fa fa-trash" aria-hidden="true"></i>
+                            <button class="btn-icon"><i class="fa fa-eye" aria-hidden="true"></i>
                         </td>
                     </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">Informação de quantidade de registros...</td>
+                        </tr>
+                    </tfoot>
                 </table>
         </main>
     </div>

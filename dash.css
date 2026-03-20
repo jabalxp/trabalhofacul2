@@ -250,8 +250,9 @@ input:focus {
     color: white;
 }
 
-.registro {
-    position: relative;
-    left: 83%;
-    margin-bottom: 10px;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
