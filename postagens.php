@@ -11,7 +11,7 @@
 
 <body>
     <div class="dashboard-container">
-        <?php include 'menu.php'; ?>
+        <?php include 'components/menu.php'; ?>
         <main>
             <div class="header-content">
                 <div class="header-title">
@@ -70,7 +70,7 @@
                 </table>
         </main>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 </body>
 
 </html>

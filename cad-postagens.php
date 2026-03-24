@@ -11,7 +11,7 @@
 
 <body>
     <div class="dashboard-container">
-        <?php include 'menu.php'; ?>
+        <?php include 'components/menu.php'; ?>
         <main>
             <section class="card-form">
                 <div class="form-header">
@@ -50,7 +50,7 @@
             </section>
         </main>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include 'components/footer.php'; ?>
 </body>
 
 </html>
