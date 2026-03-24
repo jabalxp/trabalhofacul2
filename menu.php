@@ -3,7 +3,7 @@ $usuarioLogado = "Rafael Adriano Oliveira da Silva";
 ?>
 <nav>
     <ul>
-        <li><a href="index.php">Início</a></li>
+        <li><a href="dashboard.php">Início</a></li>
         <li><a href="categorias.php">Categorias</a></li>
         <li><a href="postagens.php">Postagens</a></li>
         <li><a href="usuarios.php">Usuarios</a></li>

@@ -1,6 +1,6 @@
         <nav>
             <ul>
-                <li><a href="index.php">Início</a></li>
+                <li><a href="dashboard.php">Início</a></li>
                 <li><a href="#">Projetos</a></li>
                 <li><a href="#">Relatórios</a></li>
                 <li><a href="#">Configurações</a></li>
