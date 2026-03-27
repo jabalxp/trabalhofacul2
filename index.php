@@ -11,17 +11,19 @@
 <body>
     <div class="login-container">
         <div class="login-card">
-            <h1>Login</h1>
-            <form method="post">
+            <div class="login-header">
+                <i class="fa-solid fa-newspaper logo-icon"></i>
+                <h2>Painel do Blog</h2>
+            </div>
+            <form action="valida_login.php" method="POST">
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Seuemail@gmail.com" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" placeholder="Sua senha" required>
+                    <input type="password" name="senha" placeholder="Senha" required>
                 </div>
-                <button type="submit" class="btn-login">Entrar</button>
+                <?php include 'components/error.php'; ?>
+                <button type="submit" class="btn-login">Acessar Painel</button>
             </form>
         </div>
     </div>
