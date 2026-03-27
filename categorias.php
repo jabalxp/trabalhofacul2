@@ -18,6 +18,7 @@
                     <h2>Gestão de Categorias</h2>
                     <p>Visualize e gerencie as categorias do sistema.</p>
                 </div>
+                <a href="cad-categorias.php" class="btn registro">Nova Categoria</a>
             </div>
             <div class="table-responsive">
                 <table>

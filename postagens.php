@@ -18,7 +18,7 @@
                     <h2>Gestão de Postagens</h2>
                     <p>Visualize e gerencie as postagens do sistema.</p>
                 </div>
-
+            <a href="cad-postagens.php" class="btn registro">Nova Postagem</a>
             </div>
             <div class="table-responsive">
                 <table>

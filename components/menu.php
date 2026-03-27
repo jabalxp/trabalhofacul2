@@ -1,10 +1,8 @@
         <nav>
             <ul>
                 <li><a href="dashboard.php">Início</a></li>
-                <li><a href="#">Projetos</a></li>
-                <li><a href="#">Relatórios</a></li>
-                <li><a href="#">Configurações</a></li>
-                <li><a href="cad-usuarios.php">Cadastrar</a></li>
+                <li><a href="categorias.php">Categorias</a></li>
+                <li><a href="postagens.php">Postagens</a></li>
                 <li><a href="usuarios.php">Usuários</a></li>
             </ul>
             <div class="perfil-usuario">
