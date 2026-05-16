@@ -32,53 +32,8 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Rafael Adriano Oliveira da Silva</td>
-                            <td>rafael.adriano2801@gmail.com</td>
-                            <td>Administrador</td>
-                            <td><span class="badge ativo">Ativo</span></td>
-                            <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
-                                <button class="btn-icon"><i class="fa fa-trash" aria-hidden="true"></i>
-                                    <button class="btn-icon"><i class="fa fa-eye" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Ana Souza</td>
-                            <td>ana.souza@email.com</td>
-                            <td>Editor</td>
-                            <td><span class="badge ativo">Ativo</span></td>
-                            <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
-                                <button class="btn-icon"><i class="fa fa-trash" aria-hidden="true"></i>
-                                    <button class="btn-icon"><i class="fa fa-eye" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>03</td>
-                            <td>Miguel Casteletti Rosa</td>
-                            <td>miguelcastelettirosa@gmail.com</td>
-                            <td>Editor</td>
-                            <td><span class="badge inativo">Inativo</span></td>
-                            <td><button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
-                                <button class="btn-icon"><i class="fa fa-trash" aria-hidden="true"></i>
-                                    <button class="btn-icon"><i class="fa fa-eye" aria-hidden="true"></i>
-                            </td>
-                        </tr>
-                         <tr>
-                        <td>04</td>
-                        <td>Rafael Casteletti Rosa</td>
-                        <td>rafaelcastelettirosa@gmail.com</td>
-                        <td>Editor</td>
-                        <td><span class="badge ativo">Ativo</span></td>
-                        <td>
-                            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
-                            <button class="btn-icon"><i class="fa fa-trash" aria-hidden="true"></i>
-                            <button class="btn-icon"><i class="fa fa-eye" aria-hidden="true"></i>
-                        </td>
-                    </tr>
+                    <tbody id="lista-usuarios">
+                        <!-- Usuarios renderizados pelo JavaScript -->
                     </tbody>
                     <tfoot>
                         <tr>
@@ -89,6 +44,53 @@
         </main>
     </div>
     <?php include 'components/footer.php'; ?>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable();
+        });
 
+        function renderTable() {
+            const tbody = document.getElementById('lista-usuarios');
+            const lista = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
+            
+            tbody.innerHTML = '';
+
+            if (lista.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Nenhum usuário encontrado.</td></tr>';
+                return;
+            }
+
+            lista.forEach((user, index) => {
+                const tr = document.createElement('tr');
+                
+                const isAtivo = (user.status === '1' || user.status === 'Ativo');
+                const badgeClass = isAtivo ? 'badge ativo' : 'badge inativo';
+                const statusText = isAtivo ? 'Ativo' : 'Inativo';
+                const nivelTexto = user.nivel == "2" ? "Administrador" : "Usuário";
+                
+                tr.innerHTML = `
+                    <td>${(index + 1).toString().padStart(2, '0')}</td>
+                    <td>${user.nome}</td>
+                    <td>${user.email}</td>
+                    <td>${nivelTexto}</td>
+                    <td><span class="${badgeClass}">${statusText}</span></td>
+                    <td>
+                        <a href="#" class="btn-icon" style="text-decoration:none; color:inherit; margin-right: 5px;"><i class="fa-solid fa-pen"></i></a>
+                        <button class="btn-icon" onclick="deletarUsuario(${index})" style="cursor:pointer;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        window.deletarUsuario = function(index) {
+            if (confirm('Tem certeza que deseja excluir este usuário?')) {
+                let lista = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
+                lista.splice(index, 1);
+                localStorage.setItem('bancoUsuarios', JSON.stringify(lista));
+                renderTable();
+            }
+        };
+    </script>
+</body>
 </html>

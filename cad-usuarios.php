@@ -18,7 +18,7 @@
                     <h2><i class="fa-solid fa-user-plus"></i> Novo Usuário</h2>
                     <p>Preencha os dados abaixo para registrar um novo acesso.</p>
                 </div>
-                <form action="insere-usuario.php" method="POST">
+                <form>
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" id="nome" name="nome" placeholder="Ex: Eric Freitas" required>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn-save">Finalizar Cadastro<i class="fa-floppy-disk"></i></button>
+                        <button type="button" class="btn-save" id="btn-salvar" href="usuarios.php">Finalizar Cadastro<i class="fa-floppy-disk"></i></button>
                         <a href="dashboard.php" class="btn-cancel">Cancelar</a>
                     </div>
                 </form>
@@ -63,3 +63,25 @@
 </body>
 
 </html>
+<script>
+    const btnSalvar = document.getElementById('btn-salvar');
+    btnSalvar.addEventListener('click', function () {
+        const inputNome = document.getElementById('nome').value;
+        const inputEmail = document.getElementById('email').value;
+        const inputSenha = document.getElementById('senha').value;
+        const inputNivel = document.getElementById('nivel').value;
+        const inputAno = document.getElementById('ano').value;
+
+        const novoUsuario = { nome: inputNome, email: inputEmail, senha: inputSenha, nivel: inputNivel, ano: inputAno, status: "1" };
+
+        let lista = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
+        lista.push(novoUsuario);
+        localStorage.setItem('bancoUsuarios', JSON.stringify(lista));
+
+        alert("Usuario salvo com sucesso!");
+
+        document.getElementById('nome').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('senha').value = '';
+    });
+</script>

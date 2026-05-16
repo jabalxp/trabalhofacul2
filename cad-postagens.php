@@ -18,7 +18,7 @@
                     <h2><i class="fa-solid fa-user-plus"></i> Nova Postagem</h2>
                     <p>Preencha os dados abaixo para registrar uma nova postagem.</p>
                 </div>
-                <form action="insere-usuario.php" method="POST">
+                <form>
                     <div class="form-group">
                         <label for="nome">Título:</label>
                         <input type="text" id="nome" name="nome" placeholder="As Crônicas de Rachel" required>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn-save">Finalizar Cadastro<i class="fa-floppy-disk"></i></button>
+                        <button type="button" class="btn-save" id="btn-salvar" href="postagens.php">Finalizar Cadastro<i class="fa-floppy-disk"></i></button>
                         <a href="dashboard.php" class="btn-cancel">Cancelar</a>
                     </div>
                 </form>
@@ -54,3 +54,23 @@
 </body>
 
 </html>
+<script>
+    const btnSalvar = document.getElementById('btn-salvar');
+    btnSalvar.addEventListener('click', function () {
+        const inputNome = document.getElementById('nome').value;
+        const inputEmail = document.getElementById('email').value;
+        const inputNivel = document.getElementById('nivel').value;
+        const inputStatus = document.getElementById('status').value;
+
+        const novaPostagem = { nome: inputNome, email: inputEmail, nivel: inputNivel, status: inputStatus };
+
+        let lista = JSON.parse(localStorage.getItem('bancoPostagens')) || [];
+        lista.push(novaPostagem);
+        localStorage.setItem('bancoPostagens', JSON.stringify(lista));
+
+        alert("Postagem salva com sucesso!");
+
+        document.getElementById('nome').value = '';
+        document.getElementById('email').value = '';
+    });
+</script>

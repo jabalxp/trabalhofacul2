@@ -29,38 +29,11 @@
                             <th>Conteudo</th>
                             <th>Categoria</th>
                             <th>Status</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Primeira Postagem</td>
-                            <td>Primeira postagem.</td>
-                            <td>Notícias</td>
-                            <td><span class="badge ativo">Ativo</span></td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Segunda Postagem</td>
-                            <td>Segunda postagem.</td>
-                            <td>Notícias</td>
-                            <td><span class="badge ativo">Ativo</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>03</td>
-                            <td>Terceira Postagem</td>
-                            <td>Terceira postagem.</td>
-                            <td>Notícias</td>
-                            <td><span class="badge inativo">Inativo</span></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Quarta Postagem</td>
-                            <td>Quarta postagem.</td>
-                            <td>Notícias</td>
-                            <td><span class="badge ativo">Ativo</span></td>
-                        </tr>
+                    <tbody id="lista-postagens">
+                        <!-- Postagens renderizadas pelo JavaScript -->
                     </tbody>
                     <tfoot>
                         <tr>
@@ -71,6 +44,53 @@
         </main>
     </div>
     <?php include 'components/footer.php'; ?>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable();
+        });
 
+        function renderTable() {
+            const tbody = document.getElementById('lista-postagens');
+            const lista = JSON.parse(localStorage.getItem('bancoPostagens')) || [];
+            
+            tbody.innerHTML = '';
+
+            if (lista.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Nenhuma postagem encontrada.</td></tr>';
+                return;
+            }
+
+            lista.forEach((post, index) => {
+                const tr = document.createElement('tr');
+                
+                const isAtivo = (post.status === '1' || post.status === 'Ativo');
+                const badgeClass = isAtivo ? 'badge ativo' : 'badge inativo';
+                const statusText = isAtivo ? 'Ativo' : 'Inativo';
+                const categoriaText = post.nivel == "1" ? "Notícias" : "Outros";
+                
+                tr.innerHTML = `
+                    <td>${(index + 1).toString().padStart(2, '0')}</td>
+                    <td>${post.nome}</td>
+                    <td>${post.email}</td>
+                    <td>${categoriaText}</td>
+                    <td><span class="${badgeClass}">${statusText}</span></td>
+                    <td>
+                        <a href="#" class="btn-icon" style="text-decoration:none; color:inherit; margin-right: 5px;"><i class="fa-solid fa-pen"></i></a>
+                        <button class="btn-icon" onclick="deletarPostagem(${index})" style="cursor:pointer;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        window.deletarPostagem = function(index) {
+            if (confirm('Tem certeza que deseja excluir esta postagem?')) {
+                let lista = JSON.parse(localStorage.getItem('bancoPostagens')) || [];
+                lista.splice(index, 1);
+                localStorage.setItem('bancoPostagens', JSON.stringify(lista));
+                renderTable();
+            }
+        };
+    </script>
+</body>
 </html>
